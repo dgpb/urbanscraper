@@ -25,7 +25,9 @@ class PropiedadesSpider(CrawlSpider):
         type_transaction = response.xpath('//*[@id="content"]/div[1]/div/div/article/section[1]/div[2]/div[1]/p[1]/text()').extract_first().replace('\n', ' ').strip()
         price_usd = response.xpath('//*[@id="content"]/div[1]/div/div/article/section[1]/div[2]/div[2]/p[2]/text()').extract_first().replace('USD', ' ').strip()
         contact = response.xpath('//*[@id="request-info"]/div/div/div/div/a/text()').extract_first().replace('\n', ' ').strip()
+        prop_type = response.xpath('//*[@id="request-info"]/div/div/div/div/p[1]/text()').extract_first().replace('\n', ' ').strip()
         contact_type = response.xpath('//*[@id="request-info"]/div/div/div/div[2]/p/text()').extract_first()
+        inmobiliaria_name = response.xpath('//*[@id="request-info"]/div/div/div/div[2]/a[1]/h6/text()').extract_first()
         url = response.url
 
         items['title'] = title
@@ -36,7 +38,9 @@ class PropiedadesSpider(CrawlSpider):
         items['type_transaction'] = type_transaction
         items['price_usd'] = price_usd
         items['contact'] = contact
+        items['prop_type'] = prop_type
         items['contact_type'] = contact_type
+        items['inmobiliaria_name'] = inmobiliaria_name
         items['url'] = url
 
 

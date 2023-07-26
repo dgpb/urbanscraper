@@ -20,7 +20,9 @@ class UrbanscraperItem(scrapy.Item):
     type_transaction = scrapy.Field()
     price_usd = scrapy.Field()
     contact = scrapy.Field()
+    prop_type = scrapy.Field()
     contact_type = scrapy.Field()
+    inmobiliaria_name = scrapy.Field()
     url = scrapy.Field()
 
     pass
